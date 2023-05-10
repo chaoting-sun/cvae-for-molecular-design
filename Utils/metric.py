@@ -1,10 +1,6 @@
 import moses
-import pandas as pd
 from collections import OrderedDict
-from Utils.smiles import murcko_scaffold
-from Utils.mapper import mapper
-from Utils.smiles import get_canonical
-from Utils.property import mol_to_prop
+from Utils import mapper, murcko_scaffold, get_canonical
 
 
 def run_moses_benchmark(samples, n_jobs=1):

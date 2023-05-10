@@ -13,15 +13,17 @@ git clone git@github.com:chaoting-sun/cvae-for-molecular-design.git
 
 3. Install the dependencies
 ```bash
-conda env create -f environment.yml
+conda cvae create -f environment.yml
 ```
 
-4. cloud
+4. 
 
 https://drive.google.com/file/d/1foabzpRW2j3-JwyufG39Q7bq8NeSb2ed/view?usp=share_link
 
 
-1. Please provide the command followed by the required properties and scaffold for generating SMILES.  
+1. Please provide the command followed by the required properties and scaffold for generating SMILES.
+
+
 ```bash
 python -u sample.py -use_scaffold -property_list logP tPSA QED -model_type PScaVae
 ```

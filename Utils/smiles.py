@@ -17,15 +17,6 @@ def get_mol(smi_or_mol):
     return smi_or_mol
 
 
-# def get_canonical(smi):
-#         try:
-#             mol = Chem.MolFromSmiles(smi)
-#             can_smi = Chem.MolToSmiles(mol, True)
-#             return can_smi
-#         except:
-#             return None
-        
-
 def get_canonical(smi_or_mol):
     if isinstance(smi_or_mol, str):
         if len(smi_or_mol) == 0:

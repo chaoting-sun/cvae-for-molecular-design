@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
-from rdkit.Chem import Descriptors
-from rdkit.Chem.rdchem import AtomValenceException
-from rdkit import RDLogger, rdBase
 from collections import OrderedDict
+from rdkit.Chem import Descriptors
+from rdkit import RDLogger, rdBase
+from rdkit.Chem.rdchem import AtomValenceException
 from Utils import mapper
 
 
