@@ -1,0 +1,9 @@
+__pycache__
+
+*.pt
+
+*_smiles.csv
+*_prop.csv
+*_metric.csv
+
+*.log
