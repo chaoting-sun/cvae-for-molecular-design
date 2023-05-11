@@ -1,8 +1,7 @@
 import os
 import torch
 from collections import OrderedDict
-from Model.cvae import Cvae
-from Model.vae import Vae
+from Model import Vae, Cvae
 
 
 model_class = {

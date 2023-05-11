@@ -59,6 +59,7 @@ dependencies:
   - xz=5.4.2=h5eee18b_0
   - zlib=1.2.13=h5eee18b_0
   - zstd=1.5.5=hc292b87_0
+  - pip
   - pip:
     - apricot-select==0.6.1
     - certifi==2023.5.7

@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 from Model.layers import (
-    Sampler,
     EncoderLayer,
     DecoderLayer,
     Embeddings,

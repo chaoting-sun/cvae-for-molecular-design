@@ -1,13 +1,9 @@
 import torch
 import torch.nn as nn
-from Model.layers import (
-    EncoderLayer,
-    DecoderLayer,
-    Embeddings,
-    PositionalEncoding,
-    Norm,
+from Model.layers import Norm,             \
+    EncoderLayer, DecoderLayer,     \
+    Embeddings, PositionalEncoding, \
     get_clones
-) 
 
 
 class Encoder(nn.Module):

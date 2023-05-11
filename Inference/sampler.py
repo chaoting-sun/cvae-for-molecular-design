@@ -1,13 +1,9 @@
 import torch
 import numpy as np
 import torch.nn.functional as F
-from Model.get_model import get_model
-from Inference.utils import (
-    mapper,
-    top_k_logits,
-    tokenlen_gen_from_data_distribution,
-    get_trg_mask
-)
+from Model import get_model
+from Inference.utils import top_k_logits, get_trg_mask, \
+    tokenlen_gen_from_data_distribution
 
 
 class Sampling:
