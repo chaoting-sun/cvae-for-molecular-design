@@ -6,7 +6,8 @@ from Model.layers import (
     Embeddings,
     PositionalEncoding,
     Norm,
-    get_clones
+    get_clones,
+    Sampler
 )
 
 

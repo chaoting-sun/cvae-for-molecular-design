@@ -119,12 +119,9 @@ if __name__ == '__main__':
     LOG.info(args)
 
     # get gpu
-    if args.use_gpu:
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        if device != 'cuda':
-            exit('No available gpu!')
-    else:
-        device = 'cpu'
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if args.use_gpu and device != 'cuda':
+        print('No available gpu! Use cpu!')
 
     LOG.info('get device: %s', device)
 

@@ -13,10 +13,10 @@ model_class = {
 
 
 model_path = {
-    'Vae'    : os.path.join('Data', 'vae.pt'),
-    'PVae'   : os.path.join('Data', 'pvae.pt'),
-    'ScaVae' : os.path.join('Data', 'scavae.pt'),
-    'PScaVae': os.path.join('Data', 'pscavae.pt'),
+    'Vae'    : os.path.join('.', 'Data', 'vae.pt'),
+    'PVae'   : os.path.join('.', 'Data', 'pvae.pt'),
+    'ScaVae' : os.path.join('.', 'Data', 'scavae.pt'),
+    'PScaVae': os.path.join('.', 'Data', 'pscavae.pt'),
 }
 
 
