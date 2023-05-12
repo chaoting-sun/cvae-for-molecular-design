@@ -42,9 +42,12 @@ Note: If you have a GPU, you can add the -use_gpu flag to the above commands to 
 (5) The results will be saved in the "./Gen" directory:
 - *_smiles.csv: contains all of the generated SMILES.
 - *_prop.csv: contains all valid SMILES and their properties (logP, tPSA, QED).
-- *_metrc.csv: contains some metrics that evaluate the generated SMILES.
+- *_metrc.csv: includes
+    - basic metrics - validity, uniqueness, novelty, internal diversity, ...
+    - SSF (same scaffold fraction, the fraction of valid SMILES with the conditioned scaffold)
+    - MSE (mean signed error), MAE (mean absolute error), and SD (standard deviation)
 
-## Reference
+## References
 - model structure - borrowed from [Hyunseung-Kim/molGCT](https://github.com/Hyunseung-Kim/molGCT)
 - property computation - [rdkit/rdkit](https://github.com/rdkit/rdkit)
 - SMILES tokenizer - modified from [XinhaoLi74/SmilesPE](https://github.com/XinhaoLi74/SmilesPE)
