@@ -7,7 +7,7 @@ Welcome to this GitHub repository, where we present a molecular design method ba
 ## Getting Started
 (1) Clone the repository in your command prompt:
 ```bash
-git clone git@github.com:chaoting-sun/cvae-for-molecular-design.git
+git clone https://github.com/chaoting-sun/cvae-for-molecular-design.git
 ```
 
 (2) Create an environment
@@ -45,8 +45,9 @@ Note: If you have a GPU, you can add the -use_gpu flag to the above commands to 
 - *_metrc.csv: contains some metrics that evaluate the generated SMILES.
 
 ## Reference
-- model structure - modified from [Hyunseung-Kim/molGCT](https://github.com/Hyunseung-Kim/molGCT)
+- model structure - borrowed from [Hyunseung-Kim/molGCT](https://github.com/Hyunseung-Kim/molGCT)
 - property computation - [rdkit/rdkit](https://github.com/rdkit/rdkit)
+- SMILES tokenizer - modified from [XinhaoLi74/SmilesPE](https://github.com/XinhaoLi74/SmilesPE)
 - evaluation metrics
     - most metrics: [molecularsets/moses](https://github.com/molecularsets/moses)
     - SSF (same scaffold fraction): [devalab/molgpt](https://github.com/devalab/molgpt)
