@@ -17,7 +17,7 @@ conda env create -n cvae -f ./env.yml # create a new environment named cvae
 conda activate cvae # activate the environment
 ```
 
-(3) Download the model from [google cloud](https://drive.google.com/drive/folders/1CpF0UfM_SQlYFeABO42vyAfMJW89dTco) and move to ./Data
+(3) Download the model from [google cloud](https://drive.google.com/drive/folders/1CpF0UfM_SQlYFeABO42vyAfMJW89dTco?usp=share_link) and move to ./Data
 - vae.pt: unconditioned model
 - pvae.pt: property conditioned model
 - scavae.pt: scaffold conditioned model
