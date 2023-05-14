@@ -5,23 +5,32 @@
 Welcome to this GitHub repository, where we present a molecular design method based on a Conditional Variational Autoencoder Transformer (CVAETF). This model is tailored for property and structural constraints and has been trained on a dataset of approximately 1,580,000 molecules from the MOSES benchmarking platform. Our approach incorporates property constraints such as logP (partition coefficient), tPSA (topological polar surface area), and QED (quantitative estimate of drug-likeness), while also considering structural constraints via the Murcko scaffold. The properties and scaffold computations are performed using RDKit.
 
 ## Getting Started
-(1) Clone the repository in your command prompt:
+(1) Clone the repository:
 ```bash
 git clone https://github.com/chaoting-sun/cvae-for-molecular-design.git
 ```
 
-(2) Create an environment
+(2) Create an environment:
 ```bash
 cd cvae-for-molecular-design
 conda env create -n cvae -f ./env.yml # create a new environment named cvae
 conda activate cvae # activate the environment
 ```
 
-(3) Download the model from [google cloud](https://drive.google.com/drive/folders/1CpF0UfM_SQlYFeABO42vyAfMJW89dTco?usp=share_link) and move to ./Data
-- vae.pt: unconditioned model
-- pvae.pt: property conditioned model
-- scavae.pt: scaffold conditioned model
-- pscavae.pt: property and scaffold conditioned model
+(3) Download the models:
+```bash
+# vae.pt (unconditioned model)
+gdown https://drive.google.com/uc?id=1o0opEf0C4zc6BPvkHmLwb9iRxnYK5n3z -O ./Data/vae.pt
+
+# pvae.pt (property conditioned model)
+gdown https://drive.google.com/uc?id=12KwByWCtLPEJ_dqp4gpI6OqB-LOWAATh -O ./Data/pvae.pt
+
+# scavae.pt (scaffold conditioned model)
+gdown https://drive.google.com/uc?id=1BV8UDnRlb6OkgfbowPknao8P3Dza7lsA -O ./Data/scavae.pt
+
+# pscavae.pt (property and scaffold conditioned model)
+gdown https://drive.google.com/uc?id=1YvF5ywRN2Bm5i8sGYVIBeV1sUhlUnz3a -O ./Data/pscavae.pt
+```
 
 (4) Run the "sample.py" script with the desired options. Use the following commands:
 ```bash
