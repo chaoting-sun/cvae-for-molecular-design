@@ -140,7 +140,7 @@ if __name__ == '__main__':
 
     LOG.info('Get scaler')
 
-    scaler = joblib.load(os.path.join('Data', f'scaler.pkl'))
+    scaler = joblib.load(os.path.join('Data', 'scaler.pkl'))
 
     save_folder = './Gen'
     os.makedirs(save_folder, exist_ok=True)
