@@ -52,7 +52,7 @@ Note: If you have a GPU, you can add the -use_gpu flag to the above commands to 
 - *_smiles.csv: contains all of the generated SMILES.
 - *_prop.csv: contains all valid SMILES and their properties (logP, tPSA, QED).
 - *_metrc.csv: includes
-    - basic metrics - validity, uniqueness, novelty, internal diversity, ...
+    - basic metrics - metrics in MOSES (validity, uniqueness, novelty, internal diversity, ...)
     - SSF (same scaffold fraction, the fraction of valid SMILES with the conditioned scaffold)
     - MSE (mean signed error), MAE (mean absolute error), and SD (standard deviation)
 

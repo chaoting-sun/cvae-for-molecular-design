@@ -39,9 +39,9 @@ def input_settings(property_list, use_scaffold):
     if use_scaffold:
         while True:
             _scaffold = input(f'\nInput target scaffold:\n\n'
-                            f'Ex1: N=c1[nH]c2ccccc2[nH]1\n'
-                            f'Ex2: c1ccc(OCn2ccnc2)cc1\n'
-                            f'Ex3: O=C1CN=C(c2ccccc2)c2ccccc2N1\n\n')
+                              f'Ex1: N=c1[nH]c2ccccc2[nH]1\n'
+                              f'Ex2: c1ccc(OCn2ccnc2)cc1\n'
+                              f'Ex3: O=C1CN=C(c2ccccc2)c2ccccc2N1\n\n')
             scaffold = murcko_scaffold(_scaffold)
             if scaffold is not None:
                 break
@@ -119,9 +119,12 @@ if __name__ == '__main__':
     LOG.info(args)
 
     # get gpu
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    if args.use_gpu and device != 'cuda':
-        print('No available gpu! Use cpu!')
+    if args.use_gpu:
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        if device == 'cuda':
+            print('No available gpu! Use cpu!')
+    else:        
+        device = 'cpu'
 
     LOG.info('get device: %s', device)
 
