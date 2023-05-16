@@ -43,11 +43,12 @@ def input_settings(property_list, use_scaffold):
                               f'Ex2: c1ccc(OCn2ccnc2)cc1\n'
                               f'Ex3: O=C1CN=C(c2ccccc2)c2ccccc2N1\n\n')
             scaffold = murcko_scaffold(_scaffold)
-            if scaffold is not None:
-                break
-            else:
+
+            if scaffold is None:
                 print('Invalid SMILES:', _scaffold)
-        kwargs['scaffold'] = scaffold
+            else:
+                break
+        kwargs['scaffold'] = _scaffold
     
     # target properties
 
@@ -84,12 +85,15 @@ def add_args(parser):
                         help='multinomial or greedy')
     parser.add_argument('-use_gpu', action='store_true')
     parser.add_argument('-n_jobs', type=int, default=1,
-                        help='number of cpus')    
-    parser.add_argument('-top_k', type=int, default=-1, help="""Controls the
-                       number
-                        of top-k predictions to consider during decoding.
-                        Only the tokens with the highest probabilities
-                        are considered. Set to -1 to consider all tokens""")
+                        help='number of cpus for parallelism')    
+    parser.add_argument('-batch_size', type=int, default=256, help="""
+                        the number of data samples or instances that
+                        are processed together during inference""")
+    parser.add_argument('-top_k', type=int, default=-1, help="""
+                        Controls the number of top-k predictions
+                        to consider during decoding. Only the tokens
+                        with the highest probabilities are considered.
+                        Set to -1 to consider all tokens""")
 
     # fixed parameters
 
@@ -170,16 +174,15 @@ if __name__ == '__main__':
 
     LOG.info('Generate SMILES')
 
-    i = 0
-    batch_size = 256
     if os.path.exists(smiles_path):
         os.remove(smiles_path)
 
+    i = 0
     while n > 0:
         LOG.info(f'{n} SMILES left...')
 
-        smiles = sampler.sample_smiles(n=min(n, batch_size), **kwargs)
-        n -= batch_size
+        smiles = sampler.sample_smiles(n=min(n, args.batch_size), **kwargs)
+        n -= args.batch_size
 
         _smiles = pd.DataFrame(smiles, columns=['smiles'])
         if i == 0:
@@ -198,10 +201,11 @@ if __name__ == '__main__':
     samples = samples.dropna(subset=['smiles'])
     mols = mapper(get_mol, samples['smiles'], args.n_jobs)
     valid_mol = [m for m in mols if m is not None]
+    scaffold = mapper(murcko_scaffold, valid_mol, args.n_jobs)
     valid_smi = mapper(get_canonical, valid_mol, args.n_jobs)
 
-    gen_prop = mol_to_prop(valid_mol, args.all_property_list, args.n_jobs)
-
+    gen_prop = mol_to_prop(valid_mol, args.all_property_list, args.n_jobs) # compute properties
+    gen_prop.insert(0, 'scaffold', scaffold)
     gen_prop.insert(0, 'smiles', valid_smi)
     gen_prop.to_csv(prop_path, index=False)
 
